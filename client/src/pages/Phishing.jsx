@@ -27,7 +27,7 @@ export default function Phishing() {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-20 bg-white p-6 rounded-lg shadow-md">
+    <div className="max-w-xl mx-auto mt-20 bg-black p-6 rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-center">
         🔗 Phishing Link Detector
       </h1>
@@ -43,7 +43,7 @@ export default function Phishing() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+          className="bg-blue-600 text-black px-6 py-2 rounded hover:bg-blue-700 transition"
         >
           {loading ? "Checking…" : "Check Link"}
         </button>

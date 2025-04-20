@@ -9,6 +9,7 @@ import mongoose from "mongoose";
 import fileRoutes from "./routes/files.js";
 import phishingRoutes from "./routes/phishing.js";
 import contactRoutes from "./routes/contact.js";
+import securityCoachRoutes from "./routes/securityCoach.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use("/api/sign-s3", signS3Routes);
 app.use("/api/files", fileRoutes);
 app.use("/api/phishing", phishingRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/security-coach", securityCoachRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {

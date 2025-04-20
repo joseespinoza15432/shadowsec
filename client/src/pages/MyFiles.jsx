@@ -111,7 +111,9 @@ export default function MyFiles() {
             className="bg-[#0f172a]/60 backdrop-blur-md border border-blue-400/10 p-4 rounded-lg shadow-lg flex justify-between items-center hover:bg-[#1e293b]/60 transition-colors"
           >
             <div>
-              <p className="text-lg font-semibold text-white">{file.originalFilename}</p>
+              <p className="text-lg font-semibold text-white">
+                {file.originalFilename}
+              </p>
               <p className="text-sm text-blue-300">{file.objectKey}</p>
             </div>
             <button
