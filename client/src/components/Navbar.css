@@ -1,0 +1,68 @@
+/* src/components/Navbar.css */
+
+/* 1) Import the Auge font from a CDN */
+@import url('https://fonts.cdnfonts.com/css/Roboto');
+
+/* 2) Apply Auge as the primary font for the navbar */
+.mt-navbar {
+  font-family: 'Auge', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(4px);
+  background-color: #000; /* black */
+}
+
+/* 3) Logo in burgundy, inheriting Auge */
+.mt-navbar .text-xl {
+  color: #800020;        /* burgundy */
+  letter-spacing: 0.05em;
+}
+
+/* 4) Nav‑link list: center & space out */
+.mt-navbar ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;           /* horizontal spacing */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 5) Link text in burgundy, larger, using Auge */
+.mt-navbar li a {
+  color: #800020;        /* burgundy */
+  font-size: 3.00rem;    /* adjust if needed */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 6) Hover state: slight light overlay */
+.mt-navbar li a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 7) Active link underline in burgundy */
+.mt-navbar li a.bg-gray-900 {
+  border-bottom: 2px solid #800020;
+}
+
+/* 8) MobileNav background stays black */
+.mt-navbar .mobile-nav {
+  background-color: #000;
+  font-family: 'Auge', sans-serif;
+}
+
+/* 9) MobileNav link padding & Auge font */
+.mt-navbar .mobile-nav a {
+  padding: 0.75rem 1rem;
+  font-family: 'Auge', sans-serif;
+}
+
+/* 10) Remove extra button margins */
+.mt-navbar button {
+  margin-top: 0;
+  font-family: 'Auge', sans-serif;
+}
