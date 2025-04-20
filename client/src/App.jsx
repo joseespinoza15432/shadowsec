@@ -9,15 +9,15 @@ import Layout from "./components/Layout";
 export default function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/phishing" element={<Phishing />} />
-          <Route path="/my-files" element={<MyFiles />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="upload" element={<Upload />} />
+          <Route path="chat" element={<Chat />} />
+          <Route path="phishing" element={<Phishing />} />
+          <Route path="my-files" element={<MyFiles />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

@@ -7,6 +7,7 @@ import summarizeRoutes from "./routes/summarize.js";
 import signS3Routes from "./routes/signS3.js";
 import mongoose from "mongoose";
 import fileRoutes from "./routes/files.js";
+import phishingRoutes from "./routes/phishing.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use("/api/download", downloadRoutes);
 app.use("/api/summarize", summarizeRoutes);
 app.use("/api/sign-s3", signS3Routes);
 app.use("/api/files", fileRoutes);
+app.use("/api/phishing", phishingRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {
