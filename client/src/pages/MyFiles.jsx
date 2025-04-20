@@ -99,24 +99,24 @@ export default function MyFiles() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4">
-      <h2 className="text-3xl font-bold mb-6 text-center">
+    <div className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center">
+      <h2 className="text-3xl font-bold mb-6 text-center text-white">
         My Encrypted Files
       </h2>
-      {status && <p className="text-center text-blue-600 mb-4">{status}</p>}
-      <ul className="space-y-4">
+      {status && <p className="text-center text-blue-400 mb-4">{status}</p>}
+      <ul className="w-full space-y-4">
         {files.map((file) => (
           <li
             key={file._id}
-            className="bg-white p-4 rounded-lg shadow flex justify-between items-center"
+            className="bg-[#0f172a]/60 backdrop-blur-md border border-blue-400/10 p-4 rounded-lg shadow-lg flex justify-between items-center hover:bg-[#1e293b]/60 transition-colors"
           >
             <div>
-              <p className="text-lg font-semibold">{file.originalFilename}</p>
-              <p className="text-sm text-gray-500">{file.objectKey}</p>
+              <p className="text-lg font-semibold text-white">{file.originalFilename}</p>
+              <p className="text-sm text-blue-300">{file.objectKey}</p>
             </div>
             <button
               onClick={() => handleDecrypt(file)}
-              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
             >
               Decrypt & Download
             </button>
