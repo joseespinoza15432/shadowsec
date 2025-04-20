@@ -1,41 +1,51 @@
-import React, { useState } from 'react';
-import './Home.css';
+import React, { useState } from "react";
+import "./Home.css";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    comments: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    comments: "",
   });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      comments: ''
-    });
+    setStatus("Sending...");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ firstName: "", lastName: "", email: "", comments: "" });
+      } else {
+        setStatus(`❌ ${data.error || "Failed to send message."}`);
+      }
+    } catch (err) {
+      setStatus("❌ Server error. Try again later.");
+      console.error(err);
+    }
   };
 
   return (
     <div className="home-container">
       <div className="home-content">
-        <h1 className="home-title">
-          Contact Us
-        </h1>
+        <h1 className="home-title">Contact Us</h1>
         <div className="contact-form-container">
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
@@ -50,7 +60,7 @@ export default function Contact() {
                 className="form-input"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="lastName">Last Name</label>
               <input
@@ -63,7 +73,7 @@ export default function Contact() {
                 className="form-input"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -76,7 +86,7 @@ export default function Contact() {
                 className="form-input"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="comments">Comments</label>
               <textarea
@@ -89,13 +99,17 @@ export default function Contact() {
                 rows="4"
               />
             </div>
-            
+
             <button type="submit" className="contact-submit-button">
               Submit
             </button>
+
+            {status && (
+              <p className="mt-4 text-sm text-center text-blue-500">{status}</p>
+            )}
           </form>
         </div>
       </div>
     </div>
   );
-} 
+}
