@@ -4,6 +4,9 @@ import cors from "cors";
 import uploadRoutes from "./routes/upload.js";
 import downloadRoutes from "./routes/download.js";
 import summarizeRoutes from "./routes/summarize.js";
+import signS3Routes from "./routes/signS3.js";
+import mongoose from "mongoose";
+import fileRoutes from "./routes/files.js";
 
 dotenv.config();
 
@@ -17,6 +20,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/upload", uploadRoutes);
 app.use("/api/download", downloadRoutes);
 app.use("/api/summarize", summarizeRoutes);
+app.use("/api/sign-s3", signS3Routes);
+app.use("/api/files", fileRoutes);
+
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 app.get("/", (req, res) => {
   res.send("ShadowSec backend running");
