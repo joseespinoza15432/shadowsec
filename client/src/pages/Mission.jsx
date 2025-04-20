@@ -10,7 +10,7 @@ export default function Mission() {
         </h1>
         <div className="mission-content">
           <div className="mission-section">
-            <h2 className="mission-subtitle">Protecting Digital Assets</h2>
+            <h2 className="mission-subtitle"></h2>
             <p className="mission-text">
               At SHADOWSEC, our mission is to provide robust security solutions that protect your digital assets from modern threats. We combine advanced technology with user-friendly interfaces to make security accessible to everyone.
             </p>

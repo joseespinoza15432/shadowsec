@@ -25,6 +25,9 @@ export default function Navbar() {
           <Link to="/chat" className="navbar-link">
             Chat
           </Link>
+          <Link to="/chat" className="navbar-link">
+          Post‑Mortem Generator
+          </Link>
           <Link to="/contact" className="navbar-link">
             Contact Us
           </Link>

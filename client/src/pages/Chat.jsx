@@ -37,7 +37,7 @@ export default function Chat() {
 
   return (
     <div className="max-w-2xl mx-auto mt-20 px-4">
-      <h1 className="text-3xl font-bold text-center mb-6">🔐 Security Coach</h1>
+      <h1 className="text-3xl font-bold text-center mb-6"> Security Coach</h1>
 
       <div className="bg-white p-4 rounded shadow h-[400px] overflow-y-auto mb-4 border">
         {messages.length === 0 ? (
