@@ -6,6 +6,7 @@ import Phishing from "./pages/Phishing";
 import MyFiles from "./pages/MyFiles";
 import Mission from "./pages/Mission";
 import Contact from "./pages/Contact";
+import PostMortem from "./pages/PostMortemGenerator";
 import Layout from "./components/Layout";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="phishing" element={<Phishing />} />
           <Route path="my-files" element={<MyFiles />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="post-mortem" element={<PostMortem />} />
         </Route>
       </Routes>
     </Router>

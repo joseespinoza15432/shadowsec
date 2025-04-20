@@ -10,6 +10,7 @@ import fileRoutes from "./routes/files.js";
 import phishingRoutes from "./routes/phishing.js";
 import contactRoutes from "./routes/contact.js";
 import securityCoachRoutes from "./routes/securityCoach.js";
+import postMortemRoutes from "./routes/postMortem.js";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use("/api/files", fileRoutes);
 app.use("/api/phishing", phishingRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/security-coach", securityCoachRoutes);
+app.use("/api/post-mortem", postMortemRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {
