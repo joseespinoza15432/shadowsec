@@ -23,10 +23,11 @@ export default function NavbarComponent() {
   }, []);
 
   const items = [
-    { label: "Home",     to: "/"         },
-    { label: "Upload",   to: "/upload"   },
-    { label: "Chat",     to: "/chat"     },
+    { label: "Home", to: "/" },
+    { label: "Upload", to: "/upload" },
+    { label: "Chat", to: "/chat" },
     { label: "Phishing", to: "/phishing" },
+    { label: "My Files", to: "/my-files" },
   ];
 
   // Mobile menu: vertical list with 1rem gaps
@@ -71,11 +72,13 @@ export default function NavbarComponent() {
 
   return (
     <MaterialNavbar className="mt-navbar fixed top-0 inset-x-0 z-50 bg-black text-gray-100">
-      {/* ← changed items-center → items-start and py-2 → py-4 for extra top padding */}
       <div className="max-w-7xl mx-auto flex items-start px-4 py-4">
-        {/* ← new wrapper styles: pl-4, pt-2, justify-end & items-start */}
         <div className="w-1/4 flex justify-end items-start pl-4 pt-2">
-          <Typography as={Link} to="/" className="text-2xl font-bold text-[#800020]">
+          <Typography
+            as={Link}
+            to="/"
+            className="text-2xl font-bold text-[#800020]"
+          >
             SHADOWSEC
           </Typography>
         </div>
@@ -86,7 +89,6 @@ export default function NavbarComponent() {
         </div>
 
         {/* Hamburger toggle on mobile */}
-     
       </div>
 
       {/* Mobile dropdown menu */}

@@ -91,7 +91,7 @@ export default function Upload() {
           body: JSON.stringify({
             objectKey,
             originalFilename: file.name,
-            salt: Buffer.from(salt).toString("hex"),
+            salt: btoa(String.fromCharCode(...salt)),
           }),
         });
 
