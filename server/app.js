@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import uploadRoutes from "./routes/upload.js";
 import downloadRoutes from "./routes/download.js";
+import summarizeRoutes from "./routes/summarize.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/upload", uploadRoutes);
 app.use("/api/download", downloadRoutes);
+app.use("/api/summarize", summarizeRoutes);
 
 app.get("/", (req, res) => {
   res.send("ShadowSec backend running");
